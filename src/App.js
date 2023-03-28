@@ -20,8 +20,8 @@ const App = () => {
   // Arama çubuğunun çalışması için , arama kriterini tutacak başka bir state'e ihtiyacımız olacak.
   const [gonderiler, setGonderiler] = useState(sahteVeri);
   const [arama, setArama] = useState("");
-  const gonderiyiBegen = (gonderiID) => {
-    /*
+
+  /*
       Bu fonksiyon, belirli bir id ile gönderinin beğeni sayısını bir artırma amacına hizmet eder.
 
       Uygulamanın durumu, React ağacının en üstünde bulunur, ancak iç içe geçmiş bileşenlerin stateleri değiştirememesi adil olmaz!
@@ -33,16 +33,15 @@ const App = () => {
         - aksi takdirde, sadece gönderi nesnesini değiştirmeden döndürün.
      */
 
-    setGonderiler(
-      gonderiler.map((item) => {
-        if (item.id === gonderiID) {
-          item.likes++;
-        }
-        return item;
-      })
-    );
+  const gonderiyiBegen = (gonderiID) => {
+    const updGond = [...gonderiler];
+    updGond.map((g) => {
+      if (g.id == gonderiID) {
+        g.likes = g.likes + 1;
+      }
+    });
+    setGonderiler(updGond);
   };
-
   return (
     <div className="App">
       <AramaÇubuğu />

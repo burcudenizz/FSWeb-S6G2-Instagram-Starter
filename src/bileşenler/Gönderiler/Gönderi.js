@@ -23,7 +23,7 @@ const Gönderi = (props) => {
       {/* BeğenBölümü düzgün çalışması için ihtiyaç duyduğu tüm proplara sahip mi? */}
       <BeğenBölümü
         gonderiyiBegen={() => gonderiyiBegen(gönderi.id)}
-        begeniSayisi={gonderiyiBegen.likes}
+        begeniSayisi={gönderi.likes}
       />
       {/* Yorumlar da proplara dikkat istiyor! */}
       <Yorumlar yorumlar={gönderi.comments} />
